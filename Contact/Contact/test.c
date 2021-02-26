@@ -1,4 +1,5 @@
 #include "contact.h"
+
 void menu()
 {
 	printf("|-----------------------|\n");
@@ -6,9 +7,10 @@ void menu()
 	printf("|   1.Add     2.Delete  |\n");
 	printf("|   3.Search  4.Modify  |\n");
 	printf("|   5.Show    6.Sort    |\n");
-	printf("|        0.exit         |\n");
+	printf("|        0.Exit         |\n");
 	printf("|-----------------------|\n");
-}
+}//打印菜单
+
 int main()
 {
 	int input = 0;
@@ -23,21 +25,25 @@ int main()
 		scanf("%d", &input);
 		switch (input)
 		{
-		case Add:
+		case ADD:
 			AddContact(&con);
 			break;
-		case Delete:
+		case DELETE:
+			DeleteContact(&con);
 			break;
-		case Sreach:
+		case SREACH:
+			SreachContact(&con);
 			break;
-		case Modify:
+		case MODIFY:
+			ModifyContact(&con);
 			break;
-		case Show:
+		case SHOW:
 			ShowContact(&con);
 			break;
-		case Sort:
+		case SORT:
+			SortContact(&con);
 			break;
-		case exit:
+		case EXIT:
 			printf("退出通讯录\n");
 			break;
 		default:
