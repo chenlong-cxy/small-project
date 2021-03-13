@@ -27,7 +27,7 @@ struct PeoInfo
 	char name[MAX_NAME];
 	int age;
 	char sex[MAX_SEX];
-	int tele[MAX_TELE];
+	int tele[MAX_TELE];//char tele[MAX_TELE];
 	char address[MAX_ADDRESS];
 };//每一个联系人的信息内容
 
