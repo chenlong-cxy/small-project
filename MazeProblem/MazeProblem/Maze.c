@@ -1,6 +1,6 @@
 #include "Maze.h"
 #include "stack.h"
-
+//´òÓ¡Â·¾¶
 void Print(int Maze[MAXROW][MAXCOL],  Stack st)
 {
 	int i = 0, j = 0;
