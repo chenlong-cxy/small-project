@@ -79,20 +79,6 @@ void Path(int Maze[MAXROW][MAXCOL])
 	}
 	if (Found)
 	{
-		//printf("找到路径如下\n");
-		//printf("行 列\n");
-		//printf("1 1 \n");
-		//printf("%-2d%-2d\n", Row, Col);
-		//while (!StackEmpty(&st))
-		//{
-		//	pos = StackTop(&st);
-		//	StackPop(&st);
-		//	printf("%-2d%-2d\n", pos.row, pos.col);
-		//}
-
-		/*Mark[1][1] = 1;*/
-		/*Print(Maze, Mark, st);*/
-
 		//将到达入口处的前一个位置入栈
 		pos.row = Row;
 		pos.col = Col;
