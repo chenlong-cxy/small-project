@@ -16,16 +16,19 @@
 
 struct Face
 {
-	int data[ROW][COL + 10];
-	int color[ROW][COL + 10];
+	int data[ROW][COL + 10]; //用于标记指定位置是否有方块（1为有，0为无）
+	int color[ROW][COL + 10]; //用于记录指定位置的方块颜色编码
 }face;
 
 struct Block
 {
 	int space[4][4];
-}block[7][4];
+}block[7][4]; //用于存储7种基本形状方块的各自的4种形态的信息，共28
 
-
+//从文件读取最高分
+void ReadGrade();
+//将最高分写入文件
+void WriteGrade();
 //隐藏光标
 void HideCursor();
 //光标跳转
@@ -36,7 +39,7 @@ void InitInterface();
 void InitBlockInfo();
 //开始游戏
 void StartGame();
-//颜色更改
+//颜色设置
 void color(int num);
 //画出方块
 void DrawBlock(int shape, int form, int x, int y);
