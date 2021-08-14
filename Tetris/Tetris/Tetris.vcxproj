@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="test.c" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="Tetris.c" />
   </ItemGroup>
