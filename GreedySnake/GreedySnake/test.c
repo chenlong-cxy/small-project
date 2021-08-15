@@ -4,6 +4,7 @@
 #include<conio.h>
 #include<windows.h>
 #include<time.h>
+
 #define UP    72
 #define DOWN  80        //иообвСср
 #define LEFT  75
