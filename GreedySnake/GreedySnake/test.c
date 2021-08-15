@@ -51,6 +51,7 @@ struct Body    //身体节点
 	int x;
 	int y;
 };
+
 struct Body body[SIZE_X*SIZE_Y];
 int main()
 {
