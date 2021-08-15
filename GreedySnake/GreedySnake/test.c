@@ -16,6 +16,7 @@
 #define BODY 3
 #define SIZE_X 23   //围墙尺寸大小
 #define SIZE_Y 30
+
 void gotoxy(int x, int y);   //移动光标
 void hidden_cursor();   //隐藏光标
 int color(int c);   //颜色
