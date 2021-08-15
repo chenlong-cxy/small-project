@@ -39,7 +39,6 @@ const int snake_color = 11;
 const int wall_color = 2;
 const int food_color = 12;
 
-
 struct Snake    //Éß 
 {
 	int len;    //³¤¶È
