@@ -25,7 +25,7 @@
 //void rand_food();   //生成食物
 //void move_snake(int x, int y); //移动
 //void run(int x, int y, int *time_count);//运行
-//void pd();          //判断游戏结束，吃到食物
+//void pd() ;          //判断游戏结束，吃到食物
 //void game();
 //void MaxGrade();//最高纪录
 //int map[SIZE_X][SIZE_Y];
@@ -53,7 +53,7 @@
 //	system("title 贪吃蛇");
 //	system("cls");
 //	system("mode con cols=84 lines=26"); //设置窗口尺寸
-//	srand(time(NULL));  //随机数
+//	srand((unsigned int)time(NULL));  //随机数
 //	hidden_cursor();
 //	grade = 0;
 //	MaxGrade();
