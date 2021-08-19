@@ -4,12 +4,12 @@
 #include <time.h>
 #include <conio.h>
 
-#define ROW 22 //游戏区行数
-#define COL 42 //游戏区列数
+#define ROW 23 //界面行数
+#define COL 42 //界面列数
 
 #define KONG 0 //标记空（什么也没有）
-#define WALL 1 //标记墙
-#define FOOD 2 //标记食物
+#define FOOD 1 //标记食物
+#define HEAD 2 //标记蛇头
 #define BODY 3 //标记蛇身
 
 #define UP 72 //方向键：上

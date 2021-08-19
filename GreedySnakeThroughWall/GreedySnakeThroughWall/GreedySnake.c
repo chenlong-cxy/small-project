@@ -20,7 +20,7 @@ void CursorJump(int x, int y)
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE); //获取控制台句柄
 	SetConsoleCursorPosition(handle, pos); //设置光标位置
 }
-//初始化界面// ﹉ ﹊ ﹋
+//初始化界面
 void InitInterface()
 {
 	color(7); //颜色设置为白色
@@ -28,10 +28,36 @@ void InitInterface()
 	printf("当前得分:%d", grade);
 	CursorJump(COL, 0);
 	printf("历史最高得分:%d", max);
-	for (int i = 0; i < COL; i++)
+	color(11); //颜色设置为白色
+	for (int i = 1; i < ROW; i++)
 	{
-		CursorJump(2 * i, 1);
-		printf("__");
+		for (int j = 0; j < COL; j++)
+		{
+			if (i == 1 && j != 0 && j != COL - 1)
+			{
+				CursorJump(2 * j, i);
+				printf("__");
+			}
+			else if (i == ROW - 1 && j != 0 && j != COL - 1)
+			{
+				CursorJump(2 * j, i);
+				printf("▔▔");
+			}
+			else if (j == 0 && i != 1 && i != 0 && i != ROW - 1)
+			{
+				CursorJump(2 * j, i);
+				printf(" >");
+			}
+			else if (j == COL - 1 && i != 1 && i != 0 && i != ROW - 1)
+			{
+				CursorJump(2 * j, i);
+				printf("< ");
+			}
+			else
+			{
+				face[i][j] = KONG;
+			}
+		}
 	}
 }
 //颜色设置
@@ -77,7 +103,8 @@ void InitSnake()
 	body[0].y = ROW / 2;
 	body[1].x = COL / 2 - 2;
 	body[1].y = ROW / 2;
-	//将蛇身位置进行标记
+	//将蛇头和蛇身位置进行标记
+	face[snake.y][snake.x] = HEAD;
 	face[body[0].y][body[0].x] = BODY;
 	face[body[1].y][body[1].x] = BODY;
 }
@@ -88,29 +115,41 @@ void RandFood()
 	do
 	{
 		//随机生成食物的横纵坐标
-		i = rand() % ROW + 1;
+		i = rand() % ROW;
 		j = rand() % COL;
-	} while (face[i][j] != KONG); //确保生成食物的位置为空，若不为空则重新生成
+	} while (i <= 1 ||i==ROW-1||j==0||j==COL-1|| face[i][j] != KONG); //若食物生成位置不在游戏区，或者生成食物的位置不为空，则重新生成
 	face[i][j] = FOOD; //将食物位置进行标记
-	color(12); //颜色设置为红色
+	color(9); //颜色设置为红色
 	CursorJump(2 * j, i);
 	printf("●");
 }
 //判断得分与结束
 void JudgeFunc(int x, int y)
 {
+	int nextX = snake.x + x;
+	int nextY = snake.y + y;
+
+	if (nextX == COL-1)
+		nextX = 1;
+	if (nextX == 0)
+		nextX = COL - 2;
+
+	if (nextY == ROW - 1)
+		nextY = 2;
+	if (nextY == 1)
+		nextY = ROW - 2;
 	//若即将到达的位置是食物，则得分
-	if (face[snake.y + y][snake.x + x] == FOOD)
+	if (face[nextY][nextX] == FOOD)
 	{
 		snake.len++; //蛇身加长
 		grade += 10; //更新当前得分
 		color(7); //颜色设置为白色
-		CursorJump(0, ROW);
+		CursorJump(0, 0);
 		printf("当前得分:%d", grade); //重新打印当前得分
 		RandFood(); //重新随机生成食物
 	}
-	//若即将到达的位置是墙或者蛇身，则游戏结束
-	else if (face[snake.y + y][snake.x + x] == WALL || face[snake.y + y][snake.x + x] == BODY) 
+	//若即将到达的位置是蛇身，则游戏结束
+	else if (face[nextY][nextX] == BODY) 
 	{
 		Sleep(1000); //留给玩家反应时间
 		system("cls"); //清空屏幕
@@ -166,7 +205,8 @@ void DrawSnake(int flag)
 		for (int i = 0; i < snake.len; i++)
 		{
 			CursorJump(2 * body[i].x, body[i].y);
-			printf("□"); //打印蛇身
+			//printf("□"); //打印蛇身
+			printf("■");
 		}
 	}
 	else //覆盖蛇
@@ -196,7 +236,16 @@ void MoveSnake(int x, int y)
 	body[0].y = snake.y;
 	//蛇头的位置更改
 	snake.x = snake.x + x;
+	if (snake.x == COL-1)
+		snake.x = 1;
+	else if (snake.x == 0)
+		snake.x = COL - 2;
 	snake.y = snake.y + y;
+	if (snake.y == ROW - 1)
+		snake.y = 2;
+	else if (snake.y == 1)
+		snake.y = ROW - 2;
+	face[snake.y][snake.x] = HEAD;
 	DrawSnake(1); //打印移动后的蛇
 }
 //运行
