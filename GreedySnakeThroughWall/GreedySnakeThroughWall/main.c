@@ -1,4 +1,5 @@
 #include "GreedySnake.h"
+
 int max;
 int grade;
 int main()
