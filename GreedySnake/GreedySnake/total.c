@@ -27,7 +27,6 @@ struct Snake
 	int x; //蛇头横坐标
 	int y; //蛇头纵坐标
 }snake;
-
 //蛇身
 struct Body
 {
