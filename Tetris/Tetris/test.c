@@ -233,6 +233,7 @@ void color(int c)
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), c); //颜色设置
 	//注：SetConsoleTextAttribute是一个API（应用程序编程接口）
 }
+
 //画出方块
 void DrawBlock(int shape, int form, int x, int y)
 {
