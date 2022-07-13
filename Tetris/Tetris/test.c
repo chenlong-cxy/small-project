@@ -249,6 +249,7 @@ void DrawBlock(int shape, int form, int x, int y)
 		}
 	}
 }
+
 //¿Õ¸ñ¸²¸Ç
 void DrawSpace(int shape, int form, int x, int y)
 {
