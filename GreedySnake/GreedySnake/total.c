@@ -328,7 +328,6 @@ void run(int x, int y)
 		}
 	}
 }
-
 //游戏主体逻辑函数
 void Game()
 {
