@@ -20,7 +20,6 @@ static int CheckCapacity(struct Contact* ps)
 	}
 	return 0;
 }
-
 //╪стьнд╪Ч
 void LodeContact(struct Contact* ps)
 {
