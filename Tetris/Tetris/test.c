@@ -204,6 +204,7 @@ void InitBlockInfo()
 		}
 	}
 }
+
 //—’…´…Ë÷√
 void color(int c)
 {
