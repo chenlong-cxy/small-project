@@ -93,7 +93,6 @@ void Path(int Maze[MAXROW][MAXCOL])
 	StackDestroy(&st);//释放栈空间
 }
 
-
 //void Path(int Maze[MAXROW][MAXCOL])
 //{
 //	//设置8种走向的偏移量
