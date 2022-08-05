@@ -280,6 +280,7 @@ int IsLegal(int shape, int form, int x, int y)
 	}
 	return 1; //合法
 }
+
 //判断得分与结束
 int JudeFunc()
 {
